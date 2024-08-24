@@ -11,7 +11,7 @@ const ConversionForm = () => {
 
     const handleConvert = async () => {
         try {
-            const response = await fetch('conversornumerico-production.up.railway.app/conversion', {
+            const response = await fetch('http://conversornumerico-production.up.railway.app/conversion', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
