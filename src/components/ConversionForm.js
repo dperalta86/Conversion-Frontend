@@ -1,7 +1,6 @@
 // components/ConversionForm.js
 import React, { useState } from 'react';
 import styles from '../styles/Home.module.css';
-import axios from 'axios';
 
 const ConversionForm = () => {
     const [inputValue, setInputValue] = useState('');
@@ -11,11 +10,14 @@ const ConversionForm = () => {
 
     const handleConvert = async () => {
         try {
-            const response = await fetch('https://conversor-springboot.onrender.com', {
+            const response = await fetch('https://digitales1.onrender.com/conversor', {
                 method: 'POST',
+
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
+
+
                 body: new URLSearchParams({
                     from: fromBase,
                     to: toBase,
@@ -24,7 +26,7 @@ const ConversionForm = () => {
             });
 
             if (!response.ok) {
-                throw new Error('Error en la solicitud');
+                new Error('Error en la solicitud');
             }
 
             const data = await response.text(); // Si la respuesta es un string
